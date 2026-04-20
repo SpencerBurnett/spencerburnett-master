@@ -228,6 +228,14 @@ export default function StoryPage() {
               </div>
             ))}
           </div>
+          <div className="mt-10">
+            <Link
+              href="/plays"
+              className="cta-outline inline-block rounded-lg px-8 py-4 text-sm uppercase tracking-wider"
+            >
+              Read the Full Breakdown &rarr;
+            </Link>
+          </div>
         </div>
       </section>
 
