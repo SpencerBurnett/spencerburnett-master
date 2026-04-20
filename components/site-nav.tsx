@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 const LINKS = [
-  { href: "/", label: "Home" },
   { href: "/oracle", label: "The Oracle" },
-  { href: "/mission", label: "The Mission" },
-  { href: "/vision", label: "The Vision" },
-  { href: "/story", label: "My Story" },
+  { href: "/story", label: "Story" },
+  { href: "/amplifico", label: "Amplifico" },
+  { href: "/mindshare", label: "MindShare" },
+  { href: "/events", label: "Events" },
 ];
 
 export function SiteNav() {
@@ -29,14 +29,14 @@ export function SiteNav() {
             </Link>
           ))}
           <Link
-            href="/oracle"
+            href="/join"
             className="cta-teal rounded-lg px-5 py-2.5 text-sm uppercase tracking-wider"
           >
             Join Now
           </Link>
         </div>
         <Link
-          href="/oracle"
+          href="/join"
           className="cta-teal rounded-lg px-4 py-2 text-xs uppercase tracking-wider md:hidden"
         >
           Join
