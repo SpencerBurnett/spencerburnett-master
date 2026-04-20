@@ -38,6 +38,9 @@ export function SiteFooter() {
             <p className="text-accent-sepia text-xs uppercase tracking-wider mb-3">
               About
             </p>
+            <Link href="/creation" className="block hover:text-accent-teal">
+              Creation (5D Model)
+            </Link>
             <Link href="/story" className="block hover:text-accent-teal">
               My Story
             </Link>

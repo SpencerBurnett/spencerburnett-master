@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const LINKS = [
   { href: "/oracle", label: "The Oracle" },
+  { href: "/creation", label: "Creation" },
   { href: "/story", label: "Story" },
-  { href: "/amplifico", label: "Amplifico" },
   { href: "/mindshare", label: "MindShare" },
   { href: "/events", label: "Events" },
 ];
