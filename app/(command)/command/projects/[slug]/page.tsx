@@ -1,11 +1,15 @@
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import { projectStubs, myOracleBuild } from "@/data/projects/my-oracle-build";
 import { PageHeader } from "@/components/command/page-header";
 import { StatusPill } from "@/components/command/status-pill";
 
+// Exclude my-oracle-build — it has its own static route at
+// /command/projects/my-oracle-build/page.tsx with full data.
 export function generateStaticParams() {
-  return projectStubs.map((p) => ({ slug: p.slug }));
+  return projectStubs
+    .filter((p) => p.slug !== myOracleBuild.slug)
+    .map((p) => ({ slug: p.slug }));
 }
 
 interface PageProps {
@@ -15,9 +19,10 @@ interface PageProps {
 export default async function ProjectStubPage({ params }: PageProps) {
   const { slug } = await params;
 
-  // The flagship project has its own static route — redirect there if it
-  // somehow lands here.
-  if (slug === myOracleBuild.slug) redirect(`/command/projects/${slug}`);
+  // Defensive: if my-oracle-build somehow lands here (shouldn't, since
+  // generateStaticParams excludes it and the static route wins at runtime),
+  // 404 rather than redirect — a redirect would loop on itself.
+  if (slug === myOracleBuild.slug) notFound();
 
   const stub = projectStubs.find((p) => p.slug === slug);
   if (!stub) notFound();
